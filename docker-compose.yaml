@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  docker-cpp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker-cpp
+    container_name: docker-cpp
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
