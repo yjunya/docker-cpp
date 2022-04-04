@@ -1,5 +1,9 @@
 #!/usr/bin/make
 
+####################
+# cpp
+####################
+
 # コンパイラ設定
 CXX		= g++
 DEVCXXFLAGS	= -O3 -Wall -Wextra
@@ -67,3 +71,20 @@ clean-debug:
 	rm -rf $(DBGOBJLIST) $(DBGTGT)
 
 clean-all: clean clean-debug
+
+####################
+# docker
+####################
+
+CONTAINER	= docker-cpp
+
+.PHONY: docker-up docker-down docker-exec
+
+docker-up:
+	@docker compose up -d
+
+docker-down:
+	@docker compose down
+
+docker-exec:
+	@docker container exec -it $(CONTAINER) /bin/sh
