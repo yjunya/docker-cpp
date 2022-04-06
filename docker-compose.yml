@@ -1,11 +1,11 @@
 version: "3.3"
 services:
-  docker-cpp:
+  docker-cpp-template:
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker-cpp
-    container_name: docker-cpp
+    image: docker-cpp-template
+    container_name: docker-cpp-template
     volumes:
       - type: bind
         source: .
