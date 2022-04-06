@@ -40,11 +40,11 @@ DBGOBJDIRLIST	= $(addprefix $(DBGOBJDIR)/, $(SRCDIRLIST))
 # 実行ファイルを生成
 $(DEVTGT): $(DEVOBJLIST)
 	@if [ ! -e $(DEVTGTDIR) ]; then mkdir -p $(DEVTGTDIR); fi
-	$(CXX) -o $@ $^
+	$(CXX) -o $@ $^ $(LIBS)
 
 $(DBGTGT): $(DBGOBJLIST)
 	@if [ ! -e $(DBGTGTDIR) ]; then mkdir -p $(DBGTGTDIR); fi
-	$(CXX) -o $@ $^
+	$(CXX) -o $@ $^ $(LIBS)
 
 # 中間バイナリを生成
 $(DEVOBJDIR)/%.o: $(SRCDIR)/%.cpp
@@ -76,7 +76,7 @@ clean-all: clean clean-debug
 # docker
 ####################
 
-CONTAINER	= docker-cpp
+CONTAINER	= docker-cpp-template
 
 .PHONY: docker-up docker-down docker-exec
 
