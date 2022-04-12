@@ -6,10 +6,10 @@
 
 # コンパイラ設定
 CXX		= g++
-DEVCXXFLAGS	= -O3 -Wall -Wextra
-DBGCXXFLAGS	= -g3 -O0 -Wall -Wextra
-INCLUDES	= -I./header
+DEVCXXFLAGS	= -O3 -Wall
+DBGCXXFLAGS	= -g3 -O0 -Wall
 LIBS 		=
+INCLUDES	= -I./header
 
 # ディレクトリ
 SRCDIR		= ./src
