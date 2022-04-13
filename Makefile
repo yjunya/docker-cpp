@@ -1,5 +1,7 @@
 #!/usr/bin/make
 
+include .env
+
 ####################
 # cpp
 ####################
@@ -76,8 +78,6 @@ clean-all: clean clean-debug
 # docker
 ####################
 
-CONTAINER	= docker-cpp-template
-
 .PHONY: docker-up docker-down docker-exec
 
 docker-up:
@@ -87,4 +87,4 @@ docker-down:
 	@docker compose down
 
 docker-exec:
-	@docker container exec -it $(CONTAINER) /bin/sh
+	@docker container exec -it $(CONTAINER_MAKE) /bin/sh
